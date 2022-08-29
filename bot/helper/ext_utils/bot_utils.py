@@ -50,8 +50,12 @@ class EngineStatus:
     STATUS_EXT = "Extract | pExtract"
     STATUS_SPLIT = "FFmpeg v2.9.1"
     STATUS_ZIP = "p7zip v16.02"
+    
 
     
+PROGRESS_MAX_SIZE = 100 // 8
+PROGRESS_INCOMPLETE = ["◐", "◑", "◒", "◓", "◒", "◑", "◐"]
+  
 SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
 
 
@@ -128,7 +132,10 @@ def get_progress_bar_string(status):
     p = 0 if total == 0 else round(completed * 100 / total)
     p = min(max(p, 0), 100)
     cFull = p // 8
+    cPart = p % 8 - 1
     p_str = FINISHED_PROGRESS_STR * cFull
+    if cPart >= 0:
+        p_str += PROGRESS_INCOMPLETE[cPart]
     p_str += UN_FINISHED_PROGRESS_STR  * (12 - cFull)
     p_str = f"[{p_str}]"
     return p_str
@@ -373,7 +380,8 @@ def bot_sys_stats():
                 num_split += 1
     stats = f"Bot Statistics"
     stats += f"""
-
+    
+Made By: Dexter Mirror
 Sent : {sent} | Recv : {recv}
 CPU : {cpu}% | RAM : {mem}%
 
@@ -382,7 +390,6 @@ ZIP : {num_archi} | UNZIP : {num_extract} | TOTAL : {tasks}
 
 Limits : T/D : {TORRENT_DIRECT_LIMIT}GB | Z/U : {ZIP_UNZIP_LIMIT}GB
 
-MADE WITH ❤️ BY TG-MIRROR-LEECH-BOT
 """
     return stats
 dispatcher.add_handler(
