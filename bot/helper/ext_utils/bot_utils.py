@@ -54,7 +54,7 @@ class EngineStatus:
 
     
 PROGRESS_MAX_SIZE = 100 // 8
-PROGRESS_INCOMPLETE = ["◐", "◑", "◒", "◑", "◒", "◑", "◒"]
+PROGRESS_INCOMPLETE = ["◐", "◑", "◒", "◑", "◓", "◐", "◒"]
   
 SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
 
