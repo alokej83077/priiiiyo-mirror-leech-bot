@@ -98,7 +98,7 @@ def getHerokuDetails(h_api_key, h_app_name):
 
 
 
-IMAGE_X = "https://telegra.ph/file/3b531ac67ed53941fdce8.jpg"
+
 
 now=datetime.now(pytz.timezone(f'{TIMEZONE}'))
 
@@ -152,7 +152,7 @@ def stats(update, context):
     if heroku: stats += heroku 
     reply_message = sendMessage(stats, context.bot, update.message)
     Thread(target=auto_delete_message, args=(context.bot, update.message, reply_message)).start()       
-    update.effective_message.reply_photo(IMAGE_X, stats, parse_mode=ParseMode.HTML)
+    update.effective_message.reply_photo(stats, parse_mode=ParseMode.HTML)
 
 
 def start(update, context):
