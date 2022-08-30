@@ -135,9 +135,9 @@ def stats(update, context):
             f'<b>Used:</b> {used} | <b>Free:</b> {free}\n\n'\
             f'<b>Upload:</b> {sent}\n'\
             f'<b>Download:</b> {recv}\n\n'\
-            f'<b>Cpu:</b> {cpuUsage}%\n'\
-            f'<b>Ram:</b> {mem_p}%\n'\
-            f'<b>Disk:</b> {disk}%\n\n'\
+            f'<b>CPU:</b> {cpuUsage}%\n'\
+            f'<b>RAM:</b> {mem_p}%\n'\
+            f'<b>DISK:</b> {disk}%\n\n'\
             f'<b>Physical Cores:</b> {p_core}\n'\
             f'<b>Total Cores:</b> {t_core}\n\n'\
             f'<b>Swap:</b> {swap_t} | <b>Used:</b> {swap_p}%\n'\
