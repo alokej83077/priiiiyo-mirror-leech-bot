@@ -156,7 +156,7 @@ def get_readable_message():
             msg += f"<b>Name:</b> <code>{escape(str(download.name()))}</code>"
             msg += f"\n<b>Status:</b> <i>{download.status()}</i>"
             if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
-                msg += f"\n<b>├</b>{get_progress_bar_string(download)} {download.progress()}"
+                msg += f"\n<b>{get_progress_bar_string(download)} {download.progress()}"
                 if download.status() in [MirrorStatus.STATUS_DOWNLOADING,
                                          MirrorStatus.STATUS_WAITING,
                                          MirrorStatus.STATUS_PAUSED]:
@@ -176,12 +176,12 @@ def get_readable_message():
                 msg += f"\n<b>Warn: </b> <code>/warn {download.message.from_user.id}</code>"
                 try:
                     msg += f"\n<b>Seeders:</b> {download.aria_download().num_seeders}" \
-                           f" <b>Peers:</b> {download.aria_download().connections}"
+                           f" | <b>Peers:</b> {download.aria_download().connections}"
                 except:
                     pass
                 try:
                     msg += f"\n<b>Seeders:</b> {download.torrent_info().num_seeds}" \
-                           f" <b>Leechers:</b> {download.torrent_info().num_leechs}"
+                           f" | <b>Leechers:</b> {download.torrent_info().num_leechs}"
                 except:
                     pass
                 if download.message.chat.type != 'private':
