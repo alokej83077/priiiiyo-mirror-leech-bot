@@ -127,27 +127,23 @@ def stats(update, context):
     mem_t = get_readable_file_size(memory.total)
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
-    stats = f'<b>╭─《🌐 BOT STATISTICS 🌐》</b>\n' \
-            f'<b>│</b>\n' \
-            f'<b>├ 🛠 COMMIT DATE:</b> {last_commit}\n'\
-            f'<b>├ 🟢 ONLINE TIME:</b> {currentTime}\n'\
-            f'<b>├ 🟢 STARTED AT:</b> {current}\n'\
-            f'<b>├ ☠️ OD UPTIME:</b> {osUptime}\n'\
-            f'<b>├ 💾 DISK SPACE:</b> {total}\n'\
-            f'<b>├ 📀 DISK SPACE USED:</b> {used}\n'\
-            f'<b>├ 💿 DISK SPACE FREE:</b> {free}\n'\
-            f'<b>├ 🔺 UPLOAD DATA:</b> {sent}\n'\
-            f'<b>├ 🔻 DOWNLOAD DATA:</b> {recv}\n'\
-            f'<b>├ 🖥️ CPU USAGE:</b> {cpuUsage}%\n'\
-            f'<b>├ 🎮 RAM:</b> {mem_p}%\n'\
-            f'<b>├ 👸 DISK USED:</b> {disk}%\n'\
-            f'<b>├ 💽 PHYSICAL CRORES:</b> {p_core}\n'\
-            f'<b>├ 🍥 TOTAL CRORES:</b> {t_core}\n'\
-            f'<b>├ ✳ SWAP:</b> {swap_t}\n'\
-            f'<b>├ 👸 SWAP USED:</b> {swap_p}%\n'\
-            f'<b>├ ☁ TOTAL OF MEMORY:</b> {mem_t}\n'\
-            f'<b>├ 💃 FREE OF MEMORY:</b> {mem_a}\n'\
-            f'<b>╰ 👰 USAGE OF MEMORY:</b> {mem_u}\n'
+    stats = f'<b>Commit Date:</b> {last_commit}\n\n'\
+            f'<b>Bot Version:</b> v22.08.2067\n'\
+            f'<b>Bot Uptime:</b> {currentTime}\n'\
+            f'<b>OS Uptime:</b> {osUptime}\n\n'\
+            f'<b>Disk Space:</b> {total}\n'\
+            f'<b>Used:</b> {used} | <b>Free:</b> {free}\n\n'\
+            f'<b>Upload:</b> {sent}\n'\
+            f'<b>Download:</b> {recv}\n\n'\
+            f'<b>Cpu:</b> {cpuUsage}%\n'\
+            f'<b>Ram:</b> {mem_p}%\n'\
+            f'<b>Disk:</b> {disk}%\n\n'\
+            f'<b>Physical Cores:</b> {p_core}\n'\
+            f'<b>Total Cores:</b> {t_core}\n\n'\
+            f'<b>Swap:</b> {swap_t} | <b>Used:</b> {swap_p}%\n'\
+            f'<b>Memory Total:</b> {mem_t}\n'\
+            f'<b>Memory Free:</b> {mem_a}\n'\
+            f'<b>Memory Used:</b> {mem_u}\n'
     heroku = getHerokuDetails(HEROKU_API_KEY, HEROKU_APP_NAME)
     if heroku: stats += heroku 
     reply_message = sendMessage(stats, context.bot, update.message)
